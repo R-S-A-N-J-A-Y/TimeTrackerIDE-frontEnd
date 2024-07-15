@@ -64,8 +64,17 @@
     border-radius: 25px 0px 15px 25px;
     font: 900;
     font-size: 25px;
-    padding: 30px;
+    padding: 60px 30px 30px 30px; 
     color: white;
+}
+
+#Input-Txt{
+    position: absolute;
+    color: black;
+    left: 940px;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white; 
 }
 
 #Output-Field{
@@ -78,7 +87,17 @@
     border-radius: 25px 0px 15px 25px;
     font: 900;
     font-size: 25px;
-    padding: 30px;
+    padding: 60px 30px 30px 30px;
+    color: white;
+}
+
+#Output-Txt{
+    position: absolute;
+    color: black;
+    left: 940px;
+    top: 400px;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 }
 
