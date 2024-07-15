@@ -127,3 +127,7 @@ border-left: 2px solid #fff !important;
 .cm-s-material .CodeMirror-gutters{
     background-color: transparent;
 }
+
+.cm-s-material .cm-variable {
+    color: white;
+}

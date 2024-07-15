@@ -12,6 +12,9 @@ import "../../CSS File/Editor.css"; // Import your CSS file for additional style
 function CodeEditor() {
   const [code, setCode] = useState("#Code Here");
   const [language, setLanguage] = useState("python");
+  const RunCode = () =>{
+    console.log(code);
+  }
 
   const handleCodeChange = (value) => {
     if (value === "python") {
@@ -53,7 +56,7 @@ function CodeEditor() {
           <option value="java">Java</option>
         </select>
 
-        <button id="Run">Run</button>
+        <button id="Run" onClick={RunCode}>Run</button>
 
         <CodeMirror
           value={code}
@@ -63,7 +66,7 @@ function CodeEditor() {
             lineNumbers: true,
           }}
           onBeforeChange = { (editor, data, value) => {
-            setCode(value);
+            setCode(value); 
           }}
           className="code-mirror"
         />
