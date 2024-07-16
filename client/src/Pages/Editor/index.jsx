@@ -1,14 +1,19 @@
-import CodeEditor from "./codeEditor.jsx";
-import InputArea from "./input-area.jsx";
-import OutputArea from "./output-area.jsx";
+// index.jsx
+import React from 'react';
+import { CodeProvider } from '../../codeContext.jsx';
+import CodeEditor from './codeEditor.jsx';
+import InputArea from './input-area.jsx';
+import OutputArea from './output-area.jsx';
 
 const Editor = () => {
     return (
-        <>
-            <CodeEditor />
-            <InputArea />
-            <OutputArea />
-        </>
+        <CodeProvider>
+            <>
+                <CodeEditor />
+                <InputArea />
+                <OutputArea />
+            </>
+        </CodeProvider>
     )
 }
 
