@@ -1,4 +1,6 @@
+// First Code
 import React, { useState } from "react";
+import axios from "axios";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
@@ -12,8 +14,13 @@ import "../../CSS File/Editor.css"; // Import your CSS file for additional style
 function CodeEditor() {
   const [code, setCode] = useState("#Code Here");
   const [language, setLanguage] = useState("python");
-  const RunCode = () =>{
-    console.log(code);
+  const [result,setResult] = useState(" ");
+
+  const RunCode = () => {
+    axios 
+      .post('http://localhost:3000/python', { code })
+      .then(({data}) => setResult(data))
+      .catch((error) => alert("Error in connectivity with backend !!" )) 
   }
 
   const handleCodeChange = (value) => {
@@ -47,7 +54,6 @@ function CodeEditor() {
   return (
     <>
       <div style={{ backgroundColor: "rgb(12, 16, 33)" }} id="CodeEditor-div">
-
         <h1 id="Languages-Title">Languages</h1>
         <select id="Languages" name="languages" onChange={handleLanguageChange} value={language}>
           <option value="python">Python</option>
@@ -55,9 +61,7 @@ function CodeEditor() {
           <option value="cpp">Cpp</option>
           <option value="java">Java</option>
         </select>
-
         <button id="Run" onClick={RunCode}>Run</button>
-
         <CodeMirror
           value={code}
           options={{
@@ -65,12 +69,22 @@ function CodeEditor() {
             theme: "material",
             lineNumbers: true,
           }}
-          onBeforeChange = { (editor, data, value) => {
-            setCode(value); 
+          onBeforeChange={(_editor, _data, value) => {
+            setCode(value);
           }}
           className="code-mirror"
         />
       </div>
+
+      <pre>
+        {result.TrueorFalse === "true" && result.answer.map((line) => (
+          <span key={line}>{line} <br /></span>
+        ))}
+        
+        {result.TrueorFalse === "false" && result.message.map((line)=>(
+          <span>{line}<br /></span>
+        ))}
+      </pre>
     </>
   );
 }
