@@ -1,4 +1,3 @@
-// CodeContext.js
 import React, { createContext, useState } from 'react';
 
 export const CodeContext = createContext();

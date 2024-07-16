@@ -1,4 +1,3 @@
-// codeEditor.jsx
 import React, { useContext } from "react";
 import axios from "axios";
 import { Controlled as CodeMirror } from "react-codemirror2";

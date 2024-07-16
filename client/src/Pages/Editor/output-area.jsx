@@ -1,11 +1,9 @@
-// output-area.jsx
 import React, { useContext } from 'react';
 import { CodeContext } from '../../codeContext.jsx';
 
 function OutputArea() {
   const { result } = useContext(CodeContext);
 
-  // Check if result or its properties are undefined before accessing them
   const outputText = result && (
     result.TrueorFalse === "true" 
       ? (result.answer && result.answer.join('\n')) 
