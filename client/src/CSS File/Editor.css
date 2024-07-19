@@ -1,117 +1,77 @@
+#Editor-div{
+   height: 710px;
+   position: relative;
+   padding: 10px;
+}
+
+/* Items */
 #CodeEditor-div{
-    position: absolute;
-    right: 650px;
-    top: 10px;
-    left: 20px;
-    bottom: 20px;
-    background-color: rgb(12, 16, 33);
-    border-radius: 0px 25px 25px 15px;
-    font: 900;
-    font-size: 25px;
-    padding: 30px;
-    color: white;
+		position: absolute;
+		right: 650px;
+		top: 10px;
+		left: 20px;
+		bottom: 20px;
+		background-color: rgb(12, 16, 33);
+		border-radius: 0px 25px 25px 15px;
+		font: 900;
+		font-size: 25px;
+		padding: 30px;
+		color: white;
 }
 
 #Languages-Title{
-    position: absolute;
-    font-size: 25px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    top: 4px;
-    right: 280px;
+		position: absolute;
+		font-size: 25px;
+		font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		top: 4px;
+		right: 280px;
 }
 
 #Languages{
-    position: absolute;
-    top: 20px;
-    right: 160px;
-    height: 40px;
-    width: 100px;
-    background-color:white;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 600;
+		position: absolute;
+		top: 20px;
+		right: 160px;
+		height: 40px;
+		width: 100px;
+		background-color:white;
+		color: black;
+		border: none;
+		border-radius: 10px;
+		padding: 10px;
+		font-size: 15px;
+		font-weight: 600;
 }
 
 /* Run Button */
 
 #Run{
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    height: 40px;
-    width: 100px;
-    background: linear-gradient(to right, rgb(0, 0, 255) 0%, rgb(199, 20, 20) 100%);
-    color: black;
-    border: none;
-    border-radius: 14px;
-    padding: 7px 10px 10px 10px;
-    font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bolder;
-}
-
-#Input-Field{
-    position: absolute;
-    right: 25px;
-    top: 10px;
-    left: 900px;
-    bottom: 354px;
-    background-color: rgb(2, 8, 35);
-    border-radius: 25px 0px 15px 25px;
-    font: 900;
-    font-size: 25px;
-    padding: 60px 30px 30px 30px; 
-    color: white;
-}
-
-#Input-Txt{
-    position: absolute;
-    color: black;
-    left: 940px;
-    font-size: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white; 
-}
-
-#Output-Field{
-    position: absolute;
-    right: 25px;
-    top: 400px;
-    left: 900px;
-    bottom: 20px;
-    background-color: rgb(2, 8, 35);
-    border-radius: 25px 0px 15px 25px;
-    font: 900;
-    font-size: 25px;
-    padding: 60px 30px 30px 30px;
-    color: white;
-}
-
-#Output-Txt{
-    position: absolute;
-    color: black;
-    left: 940px;
-    top: 400px;
-    font-size: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		height: 40px;
+		width: 100px;
+		background: linear-gradient(to right, rgb(0, 0, 255) 0%, rgb(199, 20, 20) 100%);
+		color: black;
+		border: none;
+		border-radius: 14px;
+		padding: 7px 10px 10px 10px;
+		font-size: 18px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-weight: bolder;
 }
 
 /* CodeMirror overrides */
 .CodeMirror {
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    background-color: blue; /* Change background color to blue */
-    color: white;
-    line-height: 1.5;
-    margin-top: 50px;
-    height: 600px; /* Set maximum height */
-    overflow-y:hidden;
+		width: 100%;
+		border: none;
+		border-radius: 5px;
+		font-size: 18px;
+		background-color: blue; /* Change background color to blue */
+		color: white;
+		line-height: 1.5;
+		margin-top: 50px;
+		height: 600px; /* Set maximum height */
+		overflow-y:hidden;
 }
 
 .CodeMirror-cursor {
@@ -119,20 +79,71 @@ border-left: 2px solid #fff !important;
 }
 
 .CodeMirror.cm-s-material {
-    background-color: transparent !important; /* Override material theme background color */
-    color: white !important; /* Override material theme text color */
+		background-color: transparent !important; /* Override material theme background color */
+		color: white !important; /* Override material theme text color */
 }
 
 .cm-s-material .CodeMirror-gutters{
-    background-color: transparent;
+		background-color: transparent;
 }
 
 .cm-s-material .cm-variable {
-    color: white;
+		color: white;
 }
 
 pre {
-    color: white;
-    position: absolute;
-    font-size: 20px;
+		color: white;
+		position: absolute;
+		font-size: 20px;
+}
+
+/* Input Container*/
+
+#Input-Field{
+		position: absolute;
+		right: 25px;
+		top: 10px;
+		left: 900px;
+		bottom: 354px;
+		background-color: rgb(2, 8, 35);
+		border-radius: 25px 0px 15px 25px;
+		font: 900;
+		font-size: 25px;
+		padding: 60px 30px 30px 30px; 
+		color: white;
+}
+
+#Input-Txt{
+		position: absolute;
+		color: black;
+		left: 940px;
+		font-size: 25px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		color: white; 
+}
+
+/* Output Container */
+
+#Output-Field{
+		position: absolute;
+		right: 25px;
+		top: 400px;
+		left: 900px;
+		bottom: 20px;
+		background-color: rgb(2, 8, 35);
+		border-radius: 25px 0px 15px 25px;
+		font: 900;
+		font-size: 25px;
+		padding: 60px 30px 30px 30px;
+		color: white;
+}
+
+#Output-Txt{
+		position: absolute;
+		color: black;
+		left: 940px;
+		top: 400px;
+		font-size: 25px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		color: white;
 }

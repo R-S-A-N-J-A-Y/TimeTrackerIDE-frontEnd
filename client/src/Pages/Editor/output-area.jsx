@@ -4,10 +4,11 @@ import { CodeContext } from '../../codeContext.jsx';
 function OutputArea() {
   const { result } = useContext(CodeContext);
 
+  // Check if result.message is a string or an array
   const outputText = result && (
-    result.TrueorFalse === "true" 
-      ? (result.answer && result.answer.join('\n')) 
-      : (result.message && result.message.join('\n'))
+    result.TrueorFalse === "true"
+      ? (result.answer && result.answer.join('\n'))
+      : (typeof result.message === 'string' ? result.message : result.message?.join('\n') || '')
   );
 
   return (

@@ -1,0 +1,84 @@
+
+.GradientClass-header{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background: linear-gradient(to right,#0040ff 0%, #ff00f2 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.GradientClass-text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background: linear-gradient(to right, #0040ff 0%, #ff00f2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+#Notations-title{
+    font-size: 40px;
+    text-align: center;
+}
+
+#Container{
+    padding: 50px;
+    margin-top: 20px;    
+}
+
+#headLine{
+    display: inline;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+}
+
+.question-mark{
+    font-size: 55px;
+}
+
+#description-container{
+    line-height: 40px;
+}
+
+#description{
+    display: inline;
+    font-weight: 800;
+}
+
+#Notations{
+    margin-top: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+}
+
+#child1{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+#child1 h2{
+    flex: 1;
+    font-size: 25px;
+    margin-right: 50px;
+    display: inline;
+}
+
+#child1 div{
+    flex: 6;
+    display: inline;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 40px;
+}
+
+#child1 div p{
+    display: inline;
+}

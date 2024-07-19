@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import axios from "axios";
+import axios from "axios"; 
+
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
@@ -8,17 +9,22 @@ import "codemirror/mode/python/python";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/htmlmixed/htmlmixed";
-import "../../CSS File/Editor.css"; // Import your CSS file for additional styles
+
 import { CodeContext } from "../../codeContext.jsx";
 
 const CodeEditor = () => {
-  const { code, setCode, language, setLanguage, setResult } = useContext(CodeContext);
+  const { code, setCode, language, setLanguage, setResult, setShowTracker, input} = useContext(CodeContext);
 
   const RunCode = () => {
     axios 
-      .post('http://localhost:3000/python', { code })
-      .then(({data}) => setResult(data))
-      .catch((error) => alert("Error in connectivity with backend !!" )) 
+      .post('http://localhost:3000/python', { code,input })
+      .then(({data}) => {
+        setResult(data);
+        setShowTracker(true);
+        console.log(data);
+      })
+      .catch((error) => alert("Error in connectivity with backend !!" )
+      ) 
   }
 
   const handleCodeChange = (value) => {
