@@ -3,8 +3,9 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const { spawn } = require('child_process');
+const { type } = require("os");
 
-const port = 3000;
+const port = 8000;
 
 app.use(cors());
 app.use(express.json());
