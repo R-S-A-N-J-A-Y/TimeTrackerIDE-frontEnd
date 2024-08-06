@@ -2,7 +2,7 @@ import { React, useContext, useState } from "react";
 import { CodeContext } from "../../codeContext";
 
 function InputArea(){
-    const {input1, setInput1, input2, setInput2, testCases, setTestCases} = useContext(CodeContext);
+    const {input1, setInput1, input2, setInput2, testCases, setTestCases, btnColor, setBtnColor} = useContext(CodeContext);
 
     const [txtArea1,setTxtArea1] = useState(true);
     const [txtArea2,setTxtArea2] = useState(false);
@@ -20,8 +20,10 @@ function InputArea(){
         if (idx==1){
             setTxtArea1(true);
             setTxtArea2(false);
+            setBtnColor("blue");
         }
         else{
+            setBtnColor("white");
             setTxtArea1(false);
             setTxtArea2(true);
         }
@@ -40,7 +42,7 @@ function InputArea(){
                 
                 <div id="TestCases">
                     {testCases.map((testCase) => (
-                        <button key={testCase} id="TestCase" onClick={() => TxtField(testCase)}>
+                        <button style={{ backgroundColor: btnColor }} key={testCase} id="TestCase" onClick={() => TxtField(testCase)}>
                         <p>{testCase}</p>
                         </button>
                     ))}

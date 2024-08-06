@@ -8,10 +8,16 @@ function OutputArea() {
   const [txtArea2,setTxtArea2] = useState(false);
 
   // Check if result.message is a string or an array
-  const outputText = result && (
-    result.TrueorFalse === "true"
-      ? (result.answer && result.answer.join('\n'))
-      : (typeof result.message === 'string' ? result.message : result.message?.join('\n') || '')
+  const outputText1 = result.result1 && (
+    result.result1.TrueorFalse === "true"
+      ? (result.result1.answer && result.result1.answer.join('\n'))
+      : (typeof result.result1.message === 'string' ? result.result1.message : result.result1.message?.join('\n') || '')
+  );
+
+  const outputText2 = result.result2 && (
+    result.result2.TrueorFalse === "true"
+      ? (result.result2.answer && result.result2.answer.join('\n'))
+      : (typeof result.result1.message === 'string' ? result.result2.message : result.result2.message?.join('\n') || '')
   );
 
   const TxtField = (idx) =>{
@@ -40,16 +46,18 @@ function OutputArea() {
         {txtArea1 && <textarea 
           name="Code" 
           id="Output-Field" readOnly 
-          value={outputText || ''}
+          value={outputText1 || ''}
         > </textarea>}
 
         {txtArea2 && <textarea 
           name="Code" 
           id="Output-Field" readOnly 
-          value={''}
+          value={outputText2 ||''}
         > </textarea>}
         
-        {result &&<p id='Output-Time-Txt'> Execution Time: {result.ExecutionTime}</p>}
+        {txtArea1 && result.result1 &&<p id='Output-Time-Txt'> Execution Time: {result.result1.ExecutionTime}</p>}
+
+        {txtArea2 && result.result2 &&<p id='Output-Time-Txt'> Execution Time: {result.result2.ExecutionTime}</p>}
       </div>
     </>
   );

@@ -185,7 +185,7 @@ pre {
 	left: 20px;
 
 	width: 475px;
-	height: 272px;
+	height: 242px;
 
 	background-color: transparent;
 	border-radius: 25px;
@@ -195,7 +195,7 @@ pre {
 
 	font-size: 25px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	padding: 8px 30px 10px 30px;
+	padding: 8px 30px 0px 30px;
 	color: white;
 }
 
@@ -211,7 +211,7 @@ pre {
 
 #Output-Time-Txt{
 	position: absolute;
-	bottom: -14px;
+	bottom: -25px;
 	left: 30px;
 
 	font-weight: bold;

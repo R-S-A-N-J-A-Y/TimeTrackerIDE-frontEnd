@@ -1,3 +1,2 @@
 #Code Here
-x = int(input())
-print(x)
+print(input())
