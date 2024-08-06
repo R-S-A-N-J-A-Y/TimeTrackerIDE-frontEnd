@@ -6,24 +6,21 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import "codemirror/mode/clike/clike";
 import "codemirror/mode/python/python";
-import "codemirror/mode/javascript/javascript";
-import "codemirror/mode/xml/xml";
-import "codemirror/mode/htmlmixed/htmlmixed";
 
 import { CodeContext } from "../../codeContext.jsx";
 
 const CodeEditor = () => {
-  const { code, setCode, language, setLanguage, setResult, setShowTracker, input} = useContext(CodeContext);
+  const { code, setCode, language, setLanguage, setResult, setShowTracker, input1, input2} = useContext(CodeContext);
 
   const RunCode = () => {
     axios 
-      .post('http://localhost:8000/python', { code,input })
+      .post('http://localhost:8000/python', { code, input1, input2})
       .then(({data}) => {
         setResult(data);
         setShowTracker(true);
         console.log(data);
       })
-      .catch((error) => alert("Error in connectivity with backend !!" )
+      .catch(() => alert("Error in connectivity with backend !!" )
       ) 
   }
 

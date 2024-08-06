@@ -5,7 +5,7 @@ const app = express();
 const { spawn } = require('child_process');
 const { type } = require("os");
 
-const port = 8000;
+const port = 8000; //port Number
 
 app.use(cors());
 app.use(express.json());
@@ -16,10 +16,12 @@ app.post("/python", (req, res) => {
 
   const pythonProcess = spawn('python', [filePath]);
 
+  const startTime = process.hrtime();
+
   let responseSent = false;
 
-  if (req.body.input) {
-    pythonProcess.stdin.write(req.body.input);
+  if (req.body.input1) {
+    pythonProcess.stdin.write(req.body.input1);
   }
   pythonProcess.stdin.end();
 
@@ -37,12 +39,14 @@ app.post("/python", (req, res) => {
   });
 
   pythonProcess.on('close', () => {
+    const endTime = process.hrtime(startTime);
+    const execution = (endTime[0] * 1000 + endTime[1] / 1e6)/1000;
     if (!responseSent) {
       if (stderrData) {
         res.json({ TrueorFalse: "false", message: "Error running Python script: \n" + stderrData });
       } 
       else {
-        res.json({ TrueorFalse: "true", message: "Success", answer: stdoutData.split('\n') });
+        res.json({ TrueorFalse: "true", message: "Success", answer: stdoutData.split('\n'), ExecutionTime : execution });
       }
       responseSent = true;
     }
