@@ -1,2 +1,1 @@
 #Code Here
-print(input())

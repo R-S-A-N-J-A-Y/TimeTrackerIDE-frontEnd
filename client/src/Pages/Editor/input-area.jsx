@@ -1,12 +1,19 @@
 import { React, useContext, useState } from "react";
 import { CodeContext } from "../../codeContext";
+import { TxtField } from "./Custom Hook/useTxtField.jsx";
 
 function InputArea(){
-    const {input1, setInput1, input2, setInput2, testCases, setTestCases, btnColor, setBtnColor} = useContext(CodeContext);
+    const {
+        input1, setInput1, 
+        input2, setInput2, 
+        testCases, setTestCases, 
+        btnColor1, setBtnColor1, 
+        btnColor2, setBtnColor2,
+        txtArea1,setTxtArea1, 
+        txtArea2,setTxtArea2
+    } = useContext(CodeContext);
 
-    const [txtArea1,setTxtArea1] = useState(true);
-    const [txtArea2,setTxtArea2] = useState(false);
-    const [showBtn,setShowBtn] = useState(true);
+    const [ showBtn,setShowBtn ] = useState(true);
 
     const handleInputChange1 = (event) => {
         setInput1(event.target.value);
@@ -15,23 +22,13 @@ function InputArea(){
     const handleInputChange2 = (event) => {
         setInput2(event.target.value);
     }
-    
-    const TxtField = (idx) =>{
-        if (idx==1){
-            setTxtArea1(true);
-            setTxtArea2(false);
-            setBtnColor("blue");
-        }
-        else{
-            setBtnColor("white");
-            setTxtArea1(false);
-            setTxtArea2(true);
-        }
-    }
 
     const addTestCase = () => {
-        setShowBtn(false)
+        setTxtArea1(false);
+        setTxtArea2(true);
+        setShowBtn(false);
         setTestCases([...testCases, testCases.length + 1]);
+        setBtnColor1("white");
     };
 
     return (
@@ -42,11 +39,14 @@ function InputArea(){
                 
                 <div id="TestCases">
                     {testCases.map((testCase) => (
-                        <button style={{ backgroundColor: btnColor }} key={testCase} id="TestCase" onClick={() => TxtField(testCase)}>
-                        <p>{testCase}</p>
-                        </button>
+                        <button 
+                            style={{ backgroundColor: testCase===1 ? btnColor1 : btnColor2 }} 
+                            key={testCase} 
+                            className={`TestCase-${testCase}`} 
+                            onClick={() => TxtField(testCase, setTxtArea1, setTxtArea2, setBtnColor1, setBtnColor2)}
+                        > <p>{testCase}</p> </button>
                     ))}
-                    {showBtn && <button id="TestCase" onClick={addTestCase}><p>+</p></button>}
+                    {showBtn && <button className="TestCase-1" onClick={addTestCase}><p>+</p></button>}
                 </div>
                 
                 {txtArea1 && <textarea 
@@ -62,7 +62,7 @@ function InputArea(){
                     value={input2}
                     onChange={handleInputChange2}
                 ></textarea>}
-            </div>          
+            </div>  
         </>
     )
 }

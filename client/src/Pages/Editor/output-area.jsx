@@ -1,11 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { CodeContext } from '../../codeContext.jsx';
+import { TxtField } from './Custom Hook/useTxtField.jsx';
 
 function OutputArea() {
-  const { result, testCases, setTestCases } = useContext(CodeContext);
-
-  const [txtArea1,setTxtArea1] = useState(true);
-  const [txtArea2,setTxtArea2] = useState(false);
+  const { 
+    result, 
+    testCases,
+    txtArea1, setTxtArea1, 
+    txtArea2, setTxtArea2,
+    btnColor1, setBtnColor1,
+    btnColor2, setBtnColor2
+  } = useContext(CodeContext);
 
   // Check if result.message is a string or an array
   const outputText1 = result.result1 && (
@@ -20,24 +25,17 @@ function OutputArea() {
       : (typeof result.result1.message === 'string' ? result.result2.message : result.result2.message?.join('\n') || '')
   );
 
-  const TxtField = (idx) =>{
-    if (idx==1){
-        setTxtArea1(true);
-        setTxtArea2(false);
-    }
-    else{
-        setTxtArea1(false);
-        setTxtArea2(true);
-    }
-  }
-
   return (
     <>
       <div id="Output-Field-Div">
         <h1 id="Output-Txt">Output :</h1>
         <div id="TestCases">
           {testCases.map((testCase) => (
-              <button key={testCase} id="TestCase" onClick={() => TxtField(testCase)}>
+              <button 
+                key={testCase} 
+                style={{backgroundColor: testCase===1 ? btnColor1 : btnColor2 }}
+                className={`TestCase-${testCase}`} 
+                onClick={() => TxtField(testCase, setTxtArea1, setTxtArea2, setBtnColor1, setBtnColor2)}>
               <p>{testCase}</p>
               </button>
           ))}

@@ -136,7 +136,7 @@ pre {
 	z-index: 1;
 }
 
-#TestCase{
+.TestCase-1, .TestCase-2{
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;
@@ -146,7 +146,7 @@ pre {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#TestCase p{
+.TestCase-1 p,.TestCase-2 p{
 	margin-top: 2px;
 }
 
@@ -194,14 +194,13 @@ pre {
 	resize: none;
 
 	font-size: 25px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	padding: 8px 30px 0px 30px;
+	padding: 12px 30px 0px 30px;
 	color: white;
 }
 
 #Output-Txt{
 	position: absolute;
-	top: -10px;
+	top: -5px;
 	left: 30px;
 
 	font-size: 25px;

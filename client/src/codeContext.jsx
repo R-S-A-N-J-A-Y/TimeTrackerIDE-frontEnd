@@ -10,10 +10,13 @@ export const CodeProvider = ({ children }) => {
   const [input1,setInput1] = useState("");
   const [input2,setInput2] = useState("");
   const [testCases, setTestCases] = useState([1]);
-  const [btnColor, setBtnColor] = useState("white");
+  const [btnColor1, setBtnColor1] = useState("blue");
+  const [btnColor2, setBtnColor2] = useState("blue");
+  const [txtArea1, setTxtArea1] = useState(true);
+  const [txtArea2, setTxtArea2] = useState(false);
 
   return (
-    <CodeContext.Provider value={{ code, setCode, language, setLanguage, result, setResult, showTracker, setShowTracker, input1, setInput1, input2, setInput2, testCases, setTestCases, btnColor, setBtnColor}}>
+    <CodeContext.Provider value={{ code, setCode, language, setLanguage, result, setResult, showTracker, setShowTracker, input1, setInput1, input2, setInput2, testCases, setTestCases, btnColor1, setBtnColor1, btnColor2, setBtnColor2, txtArea1,setTxtArea1, txtArea2, setTxtArea2}}>
       {children}
     </CodeContext.Provider>
   );
