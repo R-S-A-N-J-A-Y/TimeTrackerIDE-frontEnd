@@ -3,6 +3,8 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const { spawn } = require('child_process');
+const { resolve } = require("path");
+const { rejects } = require("assert");
 
 const port = 8000; //port Number
 
@@ -10,19 +12,41 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/python", async (req, res) => {
+
   const filePath = process.cwd() + '/test.py';
   fs.writeFileSync(filePath, req.body.code);
 
-  const inputs = [req.body.input1, req.body.input2];
+  const inputs = [req.body.input1];
+
+  if(req.body.input2){ //The Python file only execute for testcase 2 when the input is given.
+    inputs.push(req.body.input2);
+  }
+
   const results = {};
+  const iteration = 5;
 
   for (let i = 0; i < inputs.length; i++) {
-    const result = await runPythonScript(filePath, inputs[i]);
+    const result = await runPythonScriptMultipleTime(filePath, inputs[i], iteration);
     results[`result${i + 1}`] = result;
   }
 
   res.json(results);
 });
+
+const runPythonScriptMultipleTime = (filePath, inputs, iteration) => {
+  return new Promise(async(resolve, reject) => {
+    let Total = [];
+    let result;
+
+    for(let i=0;i<iteration; i++){
+      result = await runPythonScript(filePath, inputs);
+      Total.push(result.ExecutionTime);
+    }
+    result.ExecutionTime = Math.min(...Total);
+    console.log(Total);
+    resolve(result);
+  })
+}
 
 const runPythonScript = (filePath, input) => {
   return new Promise((resolve, reject) => {
@@ -53,10 +77,10 @@ const runPythonScript = (filePath, input) => {
       const endTime = process.hrtime(startTime);
       const execution = (endTime[0] * 1000 + endTime[1] / 1e6) / 1000;
       if (stderrData){
-        resolve({ TrueorFalse: "false", message: "Error running Python script: \n" + stderrData });
+        resolve({ TrueorFalse: "false", message: "Error running (Input) Python script: \n" + stderrData });
       } 
       else{
-        resolve({ TrueorFalse: "true", message: "Success", answer: stdoutData.split('\n'), ExecutionTime: execution });
+        resolve({ TrueorFalse: "true", message: "Success", answer: stdoutData.split('\n'), ExecutionTime: execution } );
       }
     });
 
