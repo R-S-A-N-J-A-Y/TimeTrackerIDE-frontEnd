@@ -1,0 +1,18 @@
+[
+    {
+        "label": "Start",
+        "Time": 0
+    },
+    {
+        "label": "Test Case 1",
+        "Time": 0
+    },
+    {
+        "label": "Test Case 2",
+        "Time": 0
+    },
+    {
+        "label": "End",
+        "Time": 1
+    }
+]

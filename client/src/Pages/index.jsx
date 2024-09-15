@@ -15,7 +15,7 @@ const Editor = () => {
                 <OutputArea />
             </div>
             <div>
-                <Notations />                
+                <Notations />        
             </div>
         </CodeProvider>
     )

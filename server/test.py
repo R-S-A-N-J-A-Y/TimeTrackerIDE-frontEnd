@@ -1,4 +1,5 @@
-#Code Here
+x = int(input())
+for i in range(x):
+  i+=1
 
-x = input()
-print("hi ", x)
+print(100)

@@ -23,7 +23,7 @@ app.post("/python", async (req, res) => {
   }
 
   const results = {};
-  const iteration = 5;
+  const iteration = 4;
 
   for (let i = 0; i < inputs.length; i++) {
     const result = await runPythonScriptMultipleTime(filePath, inputs[i], iteration);
@@ -51,42 +51,47 @@ const runPythonScriptMultipleTime = (filePath, inputs, iteration) => {
 const runPythonScript = (filePath, input) => {
   return new Promise((resolve, reject) => {
 
-    const pythonProcess = spawn('python', [filePath]);
+    const warmUp = spawn('python', ['-c', '']);
 
-    const startTime = process.hrtime();
+    warmUp.on('close', () =>{
+      const pythonProcess = spawn('python', [filePath]);
 
-    if(input){
-      pythonProcess.stdin.write(input);
-    }
-    pythonProcess.stdin.end();
+      const startTime = process.hrtime();
 
-    let stdoutData = '';
-    let stderrData = '';
-
-    // Handle stdout data
-    pythonProcess.stdout.on('data', (data) => {
-      stdoutData += data.toString();
-    });
-
-    // Handle stderr data
-    pythonProcess.stderr.on('data', (data) => {
-      stderrData += data.toString();
-    });
-
-    pythonProcess.on('close', () => {
-      const endTime = process.hrtime(startTime);
-      const execution = (endTime[0] * 1000 + endTime[1] / 1e6) / 1000;
-      if (stderrData){
-        resolve({ TrueorFalse: "false", message: "Error running (Input) Python script: \n" + stderrData });
-      } 
-      else{
-        resolve({ TrueorFalse: "true", message: "Success", answer: stdoutData.split('\n'), ExecutionTime: execution } );
+      if(input){
+        pythonProcess.stdin.write(input);
       }
-    });
 
-    pythonProcess.on('error', (err) => {
-      reject({ TrueorFalse: "false", message: "Error starting Python process: " + err.message });
-    });
+      pythonProcess.stdin.end();
+
+      let stdoutData = '';
+      let stderrData = '';
+
+      // Handle stdout data
+      pythonProcess.stdout.on('data', (data) => {
+        stdoutData += data.toString();
+      });
+
+      // Handle stderr data
+      pythonProcess.stderr.on('data', (data) => {
+        stderrData += data.toString();
+      });
+
+      pythonProcess.on('close', () => {
+        const endTime = process.hrtime(startTime);
+        const execution = (endTime[0] * 1000 + endTime[1] / 1e6) / 1000;
+        if (stderrData){
+          resolve({ TrueorFalse: "false", message: "Error running (Input) Python script: \n" + stderrData });
+        } 
+        else{
+          resolve({ TrueorFalse: "true", message: "Success", answer: stdoutData.split('\n'), ExecutionTime: execution } );
+        }
+      });
+
+      pythonProcess.on('error', (err) => {
+        reject({ TrueorFalse: "false", message: "Error starting Python process: " + err.message });
+      });
+    })
   });
 };
 
