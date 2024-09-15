@@ -1,5 +1,5 @@
-import React from 'react';
-import { CodeProvider } from '../codeContext.jsx';
+import {React, useContext} from 'react';
+import { CodeProvider, CodeContext } from '../codeContext.jsx';
 
 import CodeEditor from './Editor/codeEditor.jsx';
 import InputArea from './Editor/input-area.jsx';
@@ -9,16 +9,25 @@ import Notations from './Tracker/Notaions.jsx';
 const Editor = () => {
     return (
         <CodeProvider>
+            <EditorContent />
+        </CodeProvider>
+    )
+}
+
+const EditorContent = () => {
+    const { showTracker } = useContext(CodeContext); // Now inside CodeProvider
+    return (
+        <>
             <div id="Editor-div">
                 <CodeEditor />
                 <InputArea />
                 <OutputArea />
             </div>
-            <div>
+            {showTracker && <div id="LineChart">
                 <Notations />        
-            </div>
-        </CodeProvider>
-    )
+            </div>}
+        </>
+    );
 }
 
 export default Editor;
