@@ -119,7 +119,7 @@ function Notations() {
                 borderWidth: 3,
                 borderColor: "white",
                 hoverRadius: (val)=>{
-                    return (val.dataIndex === 0) ? 8 : 14;
+                    return (val.dataIndex === 0 || val.dataIndex === 3) ? 6 : 14;
                 },
                 hoverBackgroundColor: (val) => {
                     return (val.dataIndex === 0 || val.dataIndex === 3) ? "red" :"Green";
