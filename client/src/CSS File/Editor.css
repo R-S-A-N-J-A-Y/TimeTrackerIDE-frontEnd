@@ -1,15 +1,17 @@
 #Editor-div{
 	display: flex;
 	flex-direction: column;
-	padding: 10px;
-
+	padding: 18px;
+	width: 710px;
 	row-gap: 50px;
 	justify-content: space-between;
 }
 
+/* Common CSS for Editor, Input and Output Field*/
+
 #CodeEditor-div, #Input-Field-Div, #Output-Field-Div{
 	flex: 0 0 auto;
-	width: 680px;
+	width: 640px;
 	position: relative;
 
 	padding: 30px;
@@ -19,6 +21,15 @@
 
 #Input-Field-Div, #Output-Field-Div{
 	height: 400px;
+}
+
+#Input-Txt, #Output-Txt{
+	position: absolute;
+	top: -5px;
+	left: 30px;
+
+	font-size: 25px;
+	color: white;
 }
 
 #Input-Field, #Output-Field{
@@ -40,9 +51,9 @@
 	color: white;
 }
 
-/* Items */
-#CodeEditor-div{
+/* Editor Container */
 
+#CodeEditor-div{
 	font: 900;
 	font-size: 25px;
 	padding: 30px;
@@ -52,7 +63,6 @@
 #Languages-Title{
 	position: absolute;
 	font-size: 25px;
-	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	top: 4px;
 	right: 280px;
 }
@@ -86,7 +96,6 @@
 	border-radius: 14px;
 	padding: 7px 10px 10px 10px;
 	font-size: 18px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	font-weight: bolder;
 }
 
@@ -129,16 +138,6 @@ pre {
 
 /* Input Container*/
 
-#Input-Txt{
-	position: absolute;
-	left: 30px;
-	top: 0px;
-
-	font-size: 25px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	color: white; 
-}
-
 #TestCases{
 	display: flex;
 	flex-direction: row;
@@ -161,7 +160,6 @@ pre {
 
 	font-weight: bold;
 	font-size: 20px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .TestCase-1 p,.TestCase-2 p{
@@ -170,16 +168,6 @@ pre {
 
 /* Output Container */
 
-#Output-Txt{
-	position: absolute;
-	top: -5px;
-	left: 30px;
-
-	font-size: 25px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	color: white;
-}
-
 #Output-Time-Txt{
 	position: absolute;
 	bottom: 10px;
@@ -187,7 +175,6 @@ pre {
 
 	font-weight: bold;
 	font-size: 25px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: white;
 }
 
