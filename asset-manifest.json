@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TimeTracker-IDE/client/static/css/main.7628567e.css",
+    "main.js": "/TimeTracker-IDE/client/static/js/main.f279c9e0.js",
+    "index.html": "/TimeTracker-IDE/client/index.html",
+    "main.7628567e.css.map": "/TimeTracker-IDE/client/static/css/main.7628567e.css.map",
+    "main.f279c9e0.js.map": "/TimeTracker-IDE/client/static/js/main.f279c9e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7628567e.css",
+    "static/js/main.f279c9e0.js"
+  ]
+}
