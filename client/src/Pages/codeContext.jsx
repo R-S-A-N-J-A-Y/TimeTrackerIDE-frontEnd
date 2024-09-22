@@ -30,6 +30,7 @@ export const CodeProvider = ({ children }) => {
 
   //Tracker
   const [showTracker,setShowTracker] = useState(false);
+  const [E2showTracker, E2setShowTracker] = useState(false);
 
   return (
     <CodeContext.Provider value={{ 
@@ -43,7 +44,8 @@ export const CodeProvider = ({ children }) => {
       E2testCases, E2setTestCases, 
       E2btnColor1, E2setBtnColor1, E2btnColor2, E2setBtnColor2, E2txtArea1,E2setTxtArea1, E2txtArea2, E2setTxtArea2,
 
-      showTracker, setShowTracker      
+      showTracker, setShowTracker,
+      E2showTracker, E2setShowTracker     
     }}>
       {children}
     </CodeContext.Provider>

@@ -53,9 +53,9 @@ function OutputArea() {
           value={outputText2 ||''}
         > </textarea>}
         
-        {txtArea1 && result.result1 &&<p id='Output-Time-Txt'> Execution Time: {result.result1.ExecutionTime}</p>}
+        {txtArea1 && result.result1 &&<p id='Output-Time-Txt'> Execution Time: {result.result1.ExecutionTime.toFixed(3)}</p>}
 
-        {txtArea2 && result.result2 &&<p id='Output-Time-Txt'> Execution Time: {result.result2.ExecutionTime}</p>}
+        {txtArea2 && result.result2 &&<p id='Output-Time-Txt'> Execution Time: {result.result2.ExecutionTime.toFixed(3)}</p>}
       </div>
     </>
   );

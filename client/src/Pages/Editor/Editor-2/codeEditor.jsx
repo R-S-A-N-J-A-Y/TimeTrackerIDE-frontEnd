@@ -17,6 +17,7 @@ const CodeEditor = () => {
       .post('http://localhost:8000/python/editor2', { code: E2code, input1: E2input1, input2: E2input2})
       .then(({data}) => {
         E2setResult(data);
+        E2setShowTracker(true);
         console.log(data);
       })
       .catch((data) => {

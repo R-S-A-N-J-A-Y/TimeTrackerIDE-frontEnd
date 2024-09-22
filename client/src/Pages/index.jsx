@@ -13,7 +13,7 @@ const Editor = () => {
 }
 
 const EditorContent = () => {
-    const { showTracker } = useContext(CodeContext); // Now inside CodeProvider
+    const { showTracker, result, E2showTracker, E2result } = useContext(CodeContext); // Now inside CodeProvider
     return (
         <>
             <div id="Editor-div">
@@ -21,7 +21,8 @@ const EditorContent = () => {
             </div>
 
             {showTracker && <div id="LineChart">
-                <Notations />        
+                <Notations showTracker = {showTracker} result = {result} ID = "Editor-1" /> 
+                {E2showTracker && <Notations showTracker = {E2showTracker} result = {E2result} ID = "Editor-2" />   }      
             </div>}
         </>
     );

@@ -11,9 +11,17 @@ const port = 8000; //port Number
 app.use(cors());
 app.use(express.json());
 
-app.post("/python", async (req, res) => {
+app.post("/python/editor1", async (req, res) => {
+  handleRequest(req, res, 'editor1');
+});
 
-  const filePath = process.cwd() + '/test.py';
+app.post("/python/editor2", async (req, res) => {
+  handleRequest(req, res, 'editor2');
+});
+
+const handleRequest = async (req, res, editor) => {
+
+  const filePath = process.cwd() + `/test_${editor}.py`;
   fs.writeFileSync(filePath, req.body.code);
 
   const inputs = [req.body.input1];
@@ -31,7 +39,7 @@ app.post("/python", async (req, res) => {
   }
 
   res.json(results);
-});
+};
 
 const runPythonScriptMultipleTime = (filePath, inputs, iteration) => {
   return new Promise(async(resolve, reject) => {
