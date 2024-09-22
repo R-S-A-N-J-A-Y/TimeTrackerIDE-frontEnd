@@ -7,9 +7,11 @@ import './CSS File/general.css';
 import './CSS File/Editor.css';
 import './CSS File/Notations.css';
 
+const basename = process.env.NODE_ENV === 'production' ? '/TimeTracker-IDE' : '/';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter basename="/TimeTracker-IDE">
+    <BrowserRouter basename={basename}>
         <Editor />
     </BrowserRouter>
 );
