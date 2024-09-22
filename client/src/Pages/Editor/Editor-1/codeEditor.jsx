@@ -14,7 +14,7 @@ const CodeEditor = () => {
 
   const RunCode = () => {
     axios 
-      .post('http://localhost:8000/python', { code, input1, input2})
+      .post('http://localhost:8000/python/editor1', { code: code, input1: input1, input2: input2})
       .then(({data}) => {
         setResult(data);
         setShowTracker(true);

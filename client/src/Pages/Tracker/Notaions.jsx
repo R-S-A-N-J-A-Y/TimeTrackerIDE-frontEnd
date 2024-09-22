@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CodeContext } from "../../codeContext";
+import { CodeContext } from "../codeContext";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import lineData from './line.json';
@@ -100,7 +100,6 @@ function Notations() {
                 
                 grid: {
                     color: (item) => {
-                        console.log(item);
                         if(item.tick.value === 0)
                             return "black";
                         return "#F6F6F6"; // Color for other grid lines

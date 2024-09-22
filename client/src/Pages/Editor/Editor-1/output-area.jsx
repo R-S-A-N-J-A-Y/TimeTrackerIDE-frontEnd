@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CodeContext } from '../../codeContext.jsx';
-import { TxtField } from './Custom Hook/useTxtField.jsx';
+import { TxtField } from '../Custom Hook/useTxtField.jsx';
 
 function OutputArea() {
   const { 

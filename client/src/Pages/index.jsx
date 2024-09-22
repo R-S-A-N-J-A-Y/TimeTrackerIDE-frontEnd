@@ -1,9 +1,7 @@
 import {React, useContext} from 'react';
-import { CodeProvider, CodeContext } from '../codeContext.jsx';
+import { CodeProvider, CodeContext } from './codeContext.jsx';
 
-import CodeEditor from './Editor/codeEditor.jsx';
-import InputArea from './Editor/input-area.jsx';
-import OutputArea from './Editor/output-area.jsx';
+import EditorIndex from './Editor/index.jsx'
 import Notations from './Tracker/Notaions.jsx';
 
 const Editor = () => {
@@ -19,10 +17,9 @@ const EditorContent = () => {
     return (
         <>
             <div id="Editor-div">
-                <CodeEditor />
-                <InputArea />
-                <OutputArea />
+                <EditorIndex />
             </div>
+
             {showTracker && <div id="LineChart">
                 <Notations />        
             </div>}

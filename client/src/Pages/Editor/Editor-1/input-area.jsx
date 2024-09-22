@@ -1,6 +1,6 @@
 import { React, useContext, useState } from "react";
-import { CodeContext } from "../../codeContext";
-import { TxtField } from "./Custom Hook/useTxtField.jsx";
+import { CodeContext } from "../../codeContext.jsx";
+import { TxtField } from "../Custom Hook/useTxtField.jsx";
 
 function InputArea(){
     const {
