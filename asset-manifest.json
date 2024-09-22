@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/TimeTracker-IDE/static/css/main.7628567e.css",
-    "main.js": "/TimeTracker-IDE/static/js/main.8fdf0aa0.js",
-    "index.html": "/TimeTracker-IDE/index.html",
-    "main.7628567e.css.map": "/TimeTracker-IDE/static/css/main.7628567e.css.map",
-    "main.8fdf0aa0.js.map": "/TimeTracker-IDE/static/js/main.8fdf0aa0.js.map"
+    "main.css": "/TimeTrackerIDE-frontEnd/static/css/main.7628567e.css",
+    "main.js": "/TimeTrackerIDE-frontEnd/static/js/main.8fdf0aa0.js",
+    "index.html": "/TimeTrackerIDE-frontEnd/index.html",
+    "main.7628567e.css.map": "/TimeTrackerIDE-frontEnd/static/css/main.7628567e.css.map",
+    "main.8fdf0aa0.js.map": "/TimeTrackerIDE-frontEnd/static/js/main.8fdf0aa0.js.map"
   },
   "entrypoints": [
     "static/css/main.7628567e.css",
